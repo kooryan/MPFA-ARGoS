@@ -17,10 +17,18 @@ if __name__ == "__main__":
     this_run = Random_Argos("./experiments/"+file)
     count =0
     startTime =time.time()
-    #result =[]
+    result =[]
+
+    # outputFile = open('results.txt', 'w')
     for _ in range(runs):
-        print "Run "+str(count)
+        print("Run "+str(count))
         count = count+1
         output = subprocess.check_output(['argos3 -n -c ' + this_run.argos_xml], shell=True, stderr=subprocess.STDOUT)
+        # print(output)
+        # elemnts = output.replace('\n', ',').split(',')
+        # result.append(elemnts[-5])
+    # for ele in result:
+    #     outputFile.write(ele+' ')
+    # outputFile.close()
     endTime = time.time()
-    print 'The total running time is '+str((endTime-startTime)/60.0)+' minutes...'
+    print('The total running time is '+str((endTime-startTime)/60.0)+' minutes...')

@@ -65,7 +65,7 @@
 		    />
 
          <settings
-	     MaxSimTimeInSeconds = "3600"
+	     MaxSimTimeInSeconds = "86400"
 	     MaxSimCounter = "1"
 	     VariableFoodPlacement = "0"
 	     OutputData = "0"
@@ -204,8 +204,8 @@
   <!-- ****************** -->
   <!-- * Visualization * -->
   <!-- ****************** -->
-<!--
-  <visualization>
+
+  <!-- <visualization>
 
 <qt-opengl>
       <camera>
@@ -214,6 +214,6 @@
       <user_functions label="CPFA_qt_user_functions"/>
     </qt-opengl>
 
-  </visualization>
--->
+  </visualization> -->
+
 </argos-configuration>

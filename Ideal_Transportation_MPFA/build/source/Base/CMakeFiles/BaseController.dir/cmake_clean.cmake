@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "BaseController_automoc.cpp"
-  "Pheromone_automoc.cpp"
-  "Nest_automoc.cpp"
+  "BaseController_autogen"
+  "CMakeFiles/BaseController_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/BaseController_autogen.dir/ParseCache.txt"
   "CMakeFiles/BaseController.dir/BaseController.cpp.o"
-  "CMakeFiles/BaseController.dir/BaseController_automoc.cpp.o"
+  "CMakeFiles/BaseController.dir/BaseController_autogen/mocs_compilation.cpp.o"
   "libBaseController.pdb"
   "libBaseController.so"
 )

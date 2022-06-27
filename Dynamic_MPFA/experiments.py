@@ -19,13 +19,13 @@ if __name__ == "__main__":
     files = ['Powerlaw_dynamic_MPFA_10by10.xml']
     
     for file in files:
-        print file
+        print(file)
         this_run = Random_Argos("./experiments/"+file)
         count =1
         startTime =time.time()
         #result =[]
         for _ in range(100):
-            print "Run "+str(count)
+            print("Run "+str(count))
             count = count+1
             output = subprocess.check_output(['argos3 -n -c ' + this_run.argos_xml], shell=True, stderr=subprocess.STDOUT)
             #elemnts = output.replace('\n', ',').split(',')
@@ -34,4 +34,4 @@ if __name__ == "__main__":
         #    outputFile.write(ele+' ')
         #outputFile.close()
         endTime = time.time()
-        print 'The total running time is '+str((endTime-startTime)/60.0)+' minutes...'
+        print('The total running time is '+str((endTime-startTime)/60.0)+' minutes...')

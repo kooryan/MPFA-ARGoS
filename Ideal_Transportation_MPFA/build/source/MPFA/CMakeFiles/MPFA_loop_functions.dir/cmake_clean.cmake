@@ -1,9 +1,10 @@
 file(REMOVE_RECURSE
-  "MPFA_controller_automoc.cpp"
-  "MPFA_loop_functions_automoc.cpp"
+  "CMakeFiles/MPFA_loop_functions_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/MPFA_loop_functions_autogen.dir/ParseCache.txt"
+  "MPFA_loop_functions_autogen"
   "CMakeFiles/MPFA_loop_functions.dir/MPFA_loop_functions.cpp.o"
+  "CMakeFiles/MPFA_loop_functions.dir/MPFA_loop_functions_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/MPFA_loop_functions.dir/MPFA_qt_user_functions.cpp.o"
-  "CMakeFiles/MPFA_loop_functions.dir/MPFA_loop_functions_automoc.cpp.o"
   "libMPFA_loop_functions.pdb"
   "libMPFA_loop_functions.so"
 )

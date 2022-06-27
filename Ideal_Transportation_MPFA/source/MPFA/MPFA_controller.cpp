@@ -615,7 +615,7 @@ void MPFA_controller::Returning()
       }
     
                 	      
-	  //LoopFunctions->setScore(total_targets_collected);
+	  LoopFunctions->setScore(total_targets_collected);
       if(poissonCDF_pLayRate > r1 && updateFidelity) 
       {
 		TrailToShare.push_back(ClosestNest->GetLocation()); //qilu 07/26/2016

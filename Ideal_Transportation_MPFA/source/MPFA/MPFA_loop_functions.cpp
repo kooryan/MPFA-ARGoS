@@ -436,7 +436,7 @@ void MPFA_loop_functions::PostExperiment() {
      printf("%d, %f, %lu\n", score, getSimTimeInSeconds(), RandomSeed);
        
                   
-    if (PrintFinalScore == 1) {
+    if (1) {
 	 string type="", backtrack="";
          if (FoodDistribution == 0) type = "random";
         else if (FoodDistribution == 1) type = "cluster";
@@ -476,10 +476,10 @@ void MPFA_loop_functions::PostExperiment() {
         
         unsigned int ticks_per_second = GetSimulator().GetPhysicsEngine("Default").GetInverseSimulationClockTick();
         
-       /* Real total_travel_time=0;
+        Real total_travel_time=0;
         Real total_search_time=0;
         ofstream travelSearchTimeDataOutput((header+"TravelSearchTimeData.txt").c_str(), ios::app);
-        */
+        
         
         argos::CSpace::TMapPerType& footbots = GetSpace().GetEntitiesByType("foot-bot");
          
@@ -489,17 +489,17 @@ void MPFA_loop_functions::PostExperiment() {
             MPFA_controller& c2 = dynamic_cast<MPFA_controller&>(c);
             CollisionTime += c2.GetCollisionTime();
             
-            /*if(c2.GetStatus() == "SEARCHING"){
+            if(c2.GetStatus() == "SEARCHING"){
                 total_search_time += SimTime-c2.GetTravelingTime();
                 total_travel_time += c2.GetTravelingTime();
 	        }
             else{
 		        total_search_time += c2.GetSearchingTime();
 		        total_travel_time += SimTime-c2.GetSearchingTime();
-            }*/
+            }
         }
-        //travelSearchTimeDataOutput<< total_travel_time/ticks_per_second<<", "<<total_search_time/ticks_per_second<<endl;
-        //travelSearchTimeDataOutput.close();
+        travelSearchTimeDataOutput<< total_travel_time/ticks_per_second<<", "<<total_search_time/ticks_per_second<<endl;
+        travelSearchTimeDataOutput.close();
         
         ofstream dataOutput( (header+ "iAntTagData.txt").c_str(), ios::app);
         // output to file

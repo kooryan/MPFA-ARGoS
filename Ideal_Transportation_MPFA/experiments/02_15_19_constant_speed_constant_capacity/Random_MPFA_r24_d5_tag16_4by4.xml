@@ -164,8 +164,7 @@ NestRadius="0.19" NumberOfClusters="4" OutputData="0" PowerlawFoodUnitCount="16"
   <!-- ****************** -->
 
 
-<!--<visualization>
-
+<visualization>
 <qt-opengl>
       <camera>
         <placement idx="0" position="0, 0, 10" look_at="0, 0, 0" lens_focal_length="25"/>
@@ -173,6 +172,6 @@ NestRadius="0.19" NumberOfClusters="4" OutputData="0" PowerlawFoodUnitCount="16"
       <user_functions label="MPFA_qt_user_functions"/>
     </qt-opengl>
 
-  </visualization>
--->
+</visualization>
+
 </argos-configuration>

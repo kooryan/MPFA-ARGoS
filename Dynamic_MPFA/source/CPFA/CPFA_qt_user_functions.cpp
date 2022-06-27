@@ -48,7 +48,7 @@ void CPFA_qt_user_functions::DrawOnArena(CFloorEntity& entity) {
 	DrawFood();
 	DrawFidelity();
 	DrawPheromones();
-	//DrawNest();
+	DrawNest();
 
 	if(loopFunctions.DrawTargetRays == 1) DrawTargetRays();
 }

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.12)
-project(CPFA-ARGoS)
+project(MPFA-ARGoS)
 
 # For verbose output
 set(CMAKE_VERBOSE_MAKEFILE ON)
@@ -42,31 +42,37 @@ endif()
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
 # Find the ARGoS package.
-find_package(PkgConfig)
-pkg_check_modules(ARGOS REQUIRED argos3_simulator)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ARGOS_PREFIX}/share/argos3/cmake)
+# find_package(PkgConfig)
+# pkg_check_modules(ARGOS REQUIRED argos3_simulator)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} /home/ryan/.local/share/argos3/cmake)
 
 # Check for required libraries to compile code depending on Qt and OpenGL.
-include(ARGoSCheckQTOpenGL)
+include(/home/ryan/.local/share/argos3/cmake/FindARGoSQTOpenGL.cmake)
 
 # Find the ARGoS package
-find_package(PkgConfig)
-pkg_check_modules(ARGOS REQUIRED argos3_simulator)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ARGOS_PREFIX}/share/argos3/cmake)
+# find_package(PkgConfig)
+# pkg_check_modules(ARGOS REQUIRED argos3_simulator) 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} /home/ryan/.local/share/argos3/cmake)
 
 # Find the GSL package.
-find_package(GSL REQUIRED)
+include(/usr/share/cmake-3.16/Modules/FindGSL.cmake)
+# find_package(GSL EXACT REQUIRED PATHS /home/ryan/gsl/bin/gsl-config)
 
-# Find the LUA package.
-find_package(Lua52 REQUIRED)
+# # Find the LUA package.
+include(/usr/share/cmake-3.16/Modules/FindLua.cmake)
+# find_package(/home/ryan/research/argos3-eepuck3D/src/cmake/FindLua53.cmake)
 
 # Set ARGoS include directory.
+
+set(ARGOS_INCLUDE_DIRS ${ARGOS_INCLUDE_DIRS} /usr/lib/argos3)
 include_directories(${CMAKE_SOURCE_DIR} ${ARGOS_INCLUDE_DIRS} ${GSL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} source)
 
+set(ARGOS_LIBRARY_DIRS ${ARGOS_LIBRARY_DIRS} /usr/lib/argos3)
 link_directories(${ARGOS_LIBRARY_DIRS} build)
 
-# Descend into the source code directory and build the CPFA libraries. This is all that's needed to run experiments.
+# Descend into the source code directory and build the MPFA libraries. This is all that's needed to run experiments.
 add_subdirectory(source)
+
 
 # Only build the evolver program if selected.
 if (BUILD_EVOLVER)
@@ -83,11 +89,12 @@ include_directories( ${Boost_INCLUDE_DIRS} )
 add_executable(cpfa_evolver source/evolver.cpp)
 
 # Specify the libraries needed to compile the evolver.
-target_link_libraries(cpfa_evolver CPFA_controller
-				   CPFA_loop_functions
+target_link_libraries(cpfa_evolver MPFA_controller
+				   MPFA_loop_functions
 				   GA-MPI   
 				   ${MPI_LIBRARIES}
 		   		   ${Boost_LIBRARIES}
-				   argos3core_simulator)
+				   argos3core_simulator
+                                   argos3plugin_simulator_entities)
 else()
 endif()

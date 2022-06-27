@@ -510,7 +510,7 @@ void CPFA_controller::Returning() {
           //Update the location of the nest qilu 09/10
           num_targets_collected++;
           ClosestNest->num_collected_tags++;
-	  LoopFunctions->currNumCollectedFood++; 
+	      LoopFunctions->currNumCollectedFood++; 
           ClosestNest->UpdateNestLocation();
          
           //Update the collected resources in the nest after updating the location of the nest
