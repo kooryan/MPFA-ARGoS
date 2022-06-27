@@ -1,0 +1,10 @@
+*~
+\#*#
+build
+results
+**/CMakeLists.txt.user*
+*.swp
+logs
+**/CmakeFiles/
+
+.catkin_tools
